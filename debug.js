@@ -89,7 +89,6 @@ readFile("schedule_debug/index.html").then(function (data) {
     return html !== String.fromCharCode(160); // Non-breakable space is char 160
   });
 
-
   // 迭代 处理后的单元格
   var courseArr = [];
   courses.each(function (i, el) {
@@ -123,27 +122,29 @@ readFile("schedule_debug/index.html").then(function (data) {
     };
     courseArr.push(info);
   });
+
   // 合并同一天，地点相同的同一课程
-  var result = [];
+  var mergedCourseArr = [];
   courseArr.forEach(function (v, i) {
     var push = true;
-    for (var j = 0; j < result.length; j++) {
-      // console.log(result);
-      if (result[j].day === v.day && result[j].name === v.name && result[j].place === v.place) {
-        result[j].order = result[j].order.concat(v.order);
+    for (var j = 0; j < mergedCourseArr.length; j++) {
+      // console.log(mergedCourseArr);
+      if (mergedCourseArr[j].day === v.day && mergedCourseArr[j].name === v.name && mergedCourseArr[j].place === v.place) {
+        mergedCourseArr[j].order = mergedCourseArr[j].order.concat(v.order);
         push = false;
-        result[j].endTime = schedule[campus][v.order[v.order.length - 1]].end // 更新课程结束时间
+        mergedCourseArr[j].endTime = schedule[campus][v.order[v.order.length - 1]].end // 更新课程结束时间
         break;
       }
     }
     if (push) {
       v.startTime = schedule[campus][v.order[0]].start; // 课程开始时间
       v.endTime = schedule[campus][v.order[v.order.length - 1]].end // 课程结束时间
-      result.push(v);
+      mergedCourseArr.push(v);
     }
   });
-  console.log(result);
+  console.log(mergedCourseArr);
   // console.log(courseArr.length);
-  // console.log(result.length);
+  // console.log(mergedCourseArr.length);
+  
 
 })
