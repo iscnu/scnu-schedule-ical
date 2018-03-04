@@ -1,0 +1,528 @@
+﻿@charset "utf-8";
+/*=======颜色图片信息========*/
+fieldset {
+	border: #CAD6E6 1px solid;
+}
+legend {
+
+}
+textarea {
+	border: 1px solid #CAD6E6;
+}
+/*FOR IE*/
+* html input.text_nor {
+	border: 1px solid #CCCCCC;
+	padding:3px 0;
+}
+/*FOR FF*/
+*>input[type="text"],*>input[type="password"] { 
+	border: 1px solid #CCCCCC;
+}
+*>input[type="text"]:hover,*>input[type="password"]:hover{
+	background:#FFFFEE;
+	border:1px solid #999999;
+	}
+*>input[type="text"]:focus,*>input[type="password"]:focus{
+	background:#FFFFEE;
+	border:1px solid #999999;
+	}
+input.text_tishi {
+	border: 1px solid #CCCCCC;
+	color: #ccc;
+}
+/*无边框*/
+input.text_nobd {
+	
+}
+input.text_nobd:hover {
+	
+}
+/*实线下划线*/
+input.text_udline {
+	border-bottom: 1px solid #CCCCCC;
+}
+input.text_udline:hover {
+	border-bottom: 1px solid #CCCCCC;
+}
+
+/*虚线下划线*/
+input.text_dashed {
+	border-bottom: 1px dashed #CCCCCC;
+}
+input.text_dashed:hover {
+	border-bottom: 1px dashed #CCCCCC;
+}
+
+/*======================全局按钮样式===============*/
+button,.button {
+	background: #ECF1F7 url(images/button_nor.gif) repeat-x left top;
+	color: #000;
+}
+
+button:hover,.ButtonStyle:hover,.button:hover {
+	background: #ECF1F7 url(images/button_mov.gif) repeat-x left top;
+	color: #000;
+}
+
+*>button,*>.ButtonStyle,*>.button { /*for modern browser*/
+	outline: 1px solid #8AA4C4;
+	border: 1px solid #fff !important;
+}
+
+* html button,* html .ButtonStyle,* html .button { /*for IE 6.0/IE 5.*/
+	border: 1px solid #8AA4C4;
+}
+
+*+html button,*+html .ButtonStyle,*+html .button { /* for IE 7 */
+	border: 1px solid #8AA4C4 !important;
+}
+/*===========================按钮条样式===================*/
+.buttonbox ul li button,.buttonbox ul li input{
+	background: url(images/button.gif) no-repeat;
+}
+/*for modern browser*/
+.buttonbox ul li button:hover,.buttonbox ul li input:hover{
+	background:url(images/button.gif) no-repeat;
+	color:#0000FF;
+}
+/**/
+button,.button{
+	color: #000;
+	padding: 0 4px;
+	cursor: pointer;
+	margin: 0 2px;
+	letter-spacing: 0.2em;
+	height: 20px
+}
+button:hover,.button:hover{
+	color: #000;
+	padding: 0 4px;
+	cursor: pointer;
+	margin: 0 2px;
+	letter-spacing: 0.2em;
+	height: 20px
+}
+*>button,*>.button{
+	/*for modern browser*/
+	height: 20px
+}
+* html button,* html .button{
+	/*for IE 6.0/IE 5.*/
+	height: 20px
+}
+/*===========================按钮条样式===================*/
+.buttonbox ul li button,.buttonbox ul li input,.buttonbox ul li a{
+	background: url(images/button.gif) no-repeat;
+	border-width: 0;
+	outline-width: 0;
+	border-width: 0 !important;
+	height: 19px!important;
+	letter-spacing: 0em!important;
+	margin: 0px!important;
+	text-align: left;
+	padding-left: 1.5em;
+	padding-right: 0!important;
+	cursor: pointer
+}
+.buttonbox ul li a{
+	padding-right: 4px!important;
+}
+*>.buttonbox ul li button,*>.buttonbox ul li input{
+	padding: auto!imortant;
+	text-align: left
+}
+/*for modern browser*/
+.buttonbox ul li button:hover,.buttonbox ul li input:hover{
+}
+/*暂无*/
+.buttonbox .btn_none{
+	background-position: -250px 0
+}
+.buttonbox .btn_none:hover{
+	background-position: -250px 0
+}
+/*增加*/
+.buttonbox .btn_zj{
+	background-position: -50px 0
+}
+.buttonbox .btn_zj:hover{
+	background-position: -50px 0
+}
+/*新建文件夹*/
+.buttonbox .btn_xjwjj{
+	background-position: 200px 0
+}
+.buttonbox .btn_xjwjj:hover{
+	background-position: -200px 0
+}
+/*修改*/
+.buttonbox .btn_xg{
+	background-position: -50px -18px
+}
+.buttonbox .btn_xg:hover{
+	background-position: -50px -18px
+}
+/*删除*/
+.buttonbox .btn_sc{
+	background-position: -50px -36px
+}
+.buttonbox .btn_sc:hover{
+	background-position: -50px -36px
+}
+/*查询*/
+.buttonbox .btn_cx{
+	background-position: -50px -54px
+}
+.buttonbox .btn_cx:hover{
+	background-position: -50px -54px
+}
+/*统计*/
+.buttonbox .btn_tj{
+	background-position: -50px -72px
+}
+.buttonbox .btn_tj:hover{
+	background-position: -50px -72px
+}
+/*导入*/
+.buttonbox .btn_dr{
+	background-position: -50px -90px
+}
+.buttonbox .btn_dr:hover{
+	background-position: -50px -90px
+}
+/*导出*/
+.buttonbox .btn_dc{
+	background-position: -50px -108px
+}
+.buttonbox .btn_dc:hover{
+	background-position: -50px -108px
+}
+/*上传*/
+.buttonbox .btn_shangc{
+	background-position: -50px -126px
+}
+.buttonbox .btn_shangc:hover{
+	background-position: -50px -126px
+}
+/*下载*/
+.buttonbox .btn_xz{
+	background-position: -50px -144px
+}
+.buttonbox .btn_xz:hover{
+	background-position: -50px -144px
+}
+/*打印*/
+.buttonbox .btn_dy{
+	background-position: -50px -162px
+}
+.buttonbox .btn_dy:hover{
+	background-position: -50px -162px
+}
+/*保存*/
+.buttonbox .btn_bc{
+	background-position: -50px -180px
+}
+.buttonbox .btn_bc:hover{
+	background-position: -50px -180px
+}
+/*返回*/
+.buttonbox .btn_fh{
+	background-position: -50px -198px
+}
+.buttonbox .btn_fh:hover{
+	background-position: -50px -198px
+}
+/*刷新*/
+.buttonbox .btn_sx{
+	background-position: -50px -216px
+}
+.buttonbox .btn_sx:hover{
+	background-position: -50px -216px
+}
+/*查看*/
+.buttonbox .btn_ck{
+	background-position: -50px -234px
+}
+.buttonbox .btn_ck:hover{
+	background-position: -50px -234px
+}
+/*设置*/
+.buttonbox .btn_sz{
+	background-position: -50px -252px
+}
+.buttonbox .btn_sz:hover{
+	background-position: -50px -252px
+}
+/*发送*/
+.buttonbox .btn_fs{
+	background-position: -50px -270px
+}
+.buttonbox .btn_fs:hover{
+	background-position: -50px -270px
+}
+/*授权*/
+.buttonbox .btn_sq{
+	background-position: -50px -288px
+}
+.buttonbox .btn_sq:hover{
+	background-position: -50px -288px
+}
+/*审核*/
+.buttonbox .btn_sh{
+	background-position: -50px -306px
+}
+.buttonbox .btn_sh:hover{
+	background-position: -50px -306px
+}
+/*清空*/
+.buttonbox .btn_qk{
+	background-position: -50px -324px
+}
+.buttonbox .btn_qk:hover{
+	background-position: -50px -324px
+}
+/*初始化*/
+.buttonbox .btn_csh{
+	background-position: -50px -342px
+}
+.buttonbox .btn_csh:hover{
+	background-position: -50px -342px
+}
+/*密码*/
+.buttonbox .btn_mm{
+	background-position: -50px -360px
+}
+.buttonbox .btn_mm:hover{
+	background-position: -50px -360px
+}
+/*修改重置密码*/
+.buttonbox .btn_mmxg{
+	background-position: -50px -378px
+}
+.buttonbox .btn_mmxg:hover{
+	background-position: -50px -378px
+}
+
+
+
+/*生成*/
+.buttonbox .btn_shengc{
+	background-position: -200px -72px
+	}
+.buttonbox .btn_shengc:hover{
+	background-position: -200px -72px
+	}
+/*随机分班*/
+.buttonbox .btn_sjfb{
+	background-position: -200px -90px
+	}
+.buttonbox .btn_sjfb:hover{
+	background-position: -200px -90px
+	}
+/*排序*/
+.buttonbox .btn_px{
+	background-position: -200px -108px
+	}
+.buttonbox .btn_px:hover{
+	background-position: -200px -108px
+	}
+/*手动分班*/
+.buttonbox .btn_sdfb{
+	background-position: -200px -126px
+	}
+.buttonbox .btn_sdfb:hover{
+	background-position: -200px -126px
+	}
+/*释放*/
+.buttonbox .btn_sf{
+	background-position: -200px -144px
+	}
+.buttonbox .btn_sf:hover{
+	background-position: -200px -144px
+	}
+/*通过*/
+.buttonbox .btn_tg{
+	background-position: -200px -162px
+	}
+.buttonbox .btn_tg:hover{
+	background-position: -200px -162px
+	}
+/*不通过*/
+.buttonbox .btn_btg{
+	background-position: -200px -180px
+	}
+.buttonbox .btn_btg:hover{
+	background-position: -200px -180px
+	}
+/*抽签*/
+.buttonbox .btn_cq{
+	background-position: -200px -198px
+	}
+/*停止*/
+.buttonbox .btn_tz{
+	background-position: -200px -216px
+	}
+/*取消*/
+.buttonbox .btn_qx{
+	background-position: -200px -234px
+	}
+/*确认*/
+.buttonbox .btn_qr{
+	background-position: -200px -252px
+	}
+/*标记*/
+.buttonbox .btn_bj{
+	background-position: -200px -270px
+	}
+/*重分教学班*/
+.buttonbox .btn_cfjxb{
+	background-position: -200px -288px
+	}
+/*分配*/
+.buttonbox .btn_fp{
+	background-position: -200px -306px
+	}
+/*插班*/
+.buttonbox .btn_cb{
+	background-position: -200px -324px
+	}
+/*分班*/
+.buttonbox .btn_fb{
+	background-position: -200px -342px
+	}
+/*不可报名*/
+.buttonbox .btn_bkbm{
+	background-position: -200px -360px
+	}
+/*可以报名*/
+.buttonbox .btn_bm{
+	background-position: -200px -378px
+	}
+/*参加*/
+.buttonbox .btn_cj{
+	background-position: -200px -396px
+	}
+/*申请*/
+.buttonbox .btn_shenq{
+	background-position: -200px -414px
+	}
+/**/
+/*====单独使用的图标=========*//*====word修改状的图标=======*/
+.ico-word{
+	background:url(images/icons.gif) no-repeat left top;
+	background-position: -50px -200px;
+	}
+/*=====Start====通用数据类型表格样式=========*/
+.datelist {
+	border: 1px solid #ccc;
+}
+
+.datelist caption {
+
+}
+
+.datelist thead th,.datelist thead td,.datelisthead td,.datelisthead td:hover{
+	border-bottom: 1px solid #ccc;
+	background: #FEFEFE url(images/thead.gif) repeat-x left bottom;
+	border-right: 1px solid #ccc;
+}
+.datelist thead tr:hover{
+}
+.datelist th,.datelist td{
+	color: #000;
+}
+.datelist tbody td,.datelist tbody th{
+	border-bottom: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+}
+.datelist tr:hover{
+	background: #EDE8E8;
+}
+.datelist tr.alt{
+	background: #F8F7F7;
+}
+.datelist tr.current{
+	background: EDE8E8;
+}
+.datelist th a,.datelist td a{
+	color: #0000FF!important;
+}
+/*=====End====通用数据类型表格样式=========*/
+
+/*=====Start====通用表单类型表格样式=========*/
+.formlist,.opentable{
+	border: 1px solid #C1D1DB;
+}
+
+.formlist caption{
+	color: #FA4C00;
+}
+
+.formlist th,.formlist td,.opentable th,.opentable td{
+	border: 1px solid #C1D1DB;
+	background:#f2f6fb;
+	color:#5F7485;
+	position:relative;
+}
+.formlist th,.opentable th{
+	text-align:right;
+	}
+.formlist td:hover,.opentable td:hover{
+	background:#e8eef7;
+}
+
+.formlist label.heading{
+}
+/*=====End====通用表单类型表格样式=========*/
+
+/*====黑线框表格=========*/
+.blacktab{
+	border: 1px solid #000;
+	}
+.blacktab th,.blacktab td{
+	border: 1px solid #000;
+	color:#000;
+}
+/*====红色表格=========*/
+.redtab{
+	border: 1px solid red;
+	}
+.redtab caption{
+	color:red;
+	}
+.redtab th,.redtab td{
+	border: 1px solid red;
+	color:red;
+}
+.redtab th{
+	}
+.redtab input{
+	border-bottom:#000;
+	}
+/*============表格换行等样式==============*/
+.nowrap td,.nowrap th{
+	}
+.pre th ,.pre th{
+	}
+.wordbreak{word-break:break-all;}
+
+.navbug {
+	position: absolute;
+	visibility: inherit;
+	top: 0px;
+	left: 0px; /* =====FGW2008-03-08加入===== */
+	width: 800px;
+	height: 800px;
+	z-index: -999;
+	filter: Alpha(Opacity=0)
+}
+.navbug1 {
+	position: absolute;
+	visibility: inherit;
+	top: 0px;
+	left: 0px; /* =====FGW2008-03-08加入===== */
+	width: 800px;
+	height: 350px;
+	z-index: -999;
+	filter: Alpha(Opacity=0)
+}
