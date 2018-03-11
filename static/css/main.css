@@ -1,0 +1,161 @@
+
+@media screen and (min-width: 1408px) {
+  .container {
+    max-width: 960px;
+    width: 960px;
+  }
+}
+
+@media screen and (min-width: 1216px) {
+  .container {
+    max-width: 960px;
+    width: 960px;
+  }
+}
+
+.screenshot {
+  border: 1px solid #ccc;
+}
+
+.part {
+  min-height: 650px;
+}
+
+table {
+    font-size: 12px;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table, tr, td {
+    border: 1px solid gray;
+}
+
+table tr {
+    height: 50px;
+}
+
+table td {
+    width: 110px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px;
+}
+
+.steps-content {
+  font-size: 1rem;
+}
+
+.first-col {
+  width: 18px;
+  padding: 2px;
+}
+
+.first-row {
+  height: 12px;
+  font-size: 13px;
+}
+
+.first-row td {
+  padding: 2px;
+}
+
+/* 模态框 */
+.model-mask {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(230, 230, 230, 0.57);
+  z-index: 9999;
+}
+.model-container {
+  position: relative;
+  margin-top: 80px;
+  width: 420px;
+  min-height: 410px;
+  background: aliceblue;
+  padding: 10px 20px 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 关闭按钮 */
+.close-button {
+ position: absolute;
+ top: 10px;
+ right: 15px;
+ height: 15px;
+ width: 15px;
+}
+
+/* 弹框 */
+.model-confirm {
+ position: relative;
+ margin-top: 20vh;
+ width: 300px;
+ background: #fff;
+ padding: 10px 20px 20px;
+ margin-left: auto;
+ margin-right: auto;
+ min-height: 150px;
+}
+.model-confirm .buttons {
+  text-align: right;
+  margin-bottom: 0;
+  position: absolute;
+  right: 1em;
+  bottom: 5px;
+}
+.model-confirm .buttons button {
+ margin-left: 5px;
+}
+
+.model-content {
+  margin-top: 10px;
+}
+
+.contact,.contact-email,.contact-wechat,.contact-weibo {
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    line-height: 10em;
+    text-indent: -9999px;
+    overflow: hidden;
+    background: url(../images/icon_contact.png) no-repeat;
+    background-size: 65px
+}
+
+.contact-wechat {
+    background-position: -40px 0
+}
+
+.contact-wechat:hover {
+    background-position: 0 0
+}
+
+.contact-qq {
+    background-position: -40px -30px
+}
+
+.contact-qq:hover {
+    background-position: 0 -30px
+}
+
+.contact-weibo {
+    background-position: -40px -60px
+}
+
+.contact-weibo:hover {
+    background-position: 0 -60px
+}
+
+.contact-email {
+    background-position: -40px -90px
+}
+
+.contact-email:hover {
+    background-position: 0 -90px
+}

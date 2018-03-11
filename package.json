@@ -1,6 +1,6 @@
 {
   "name": "zf_schedule",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "export schedule of Zhengfang System to ics calendar file",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,22 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
+    "blueimp-md5": "^2.10.0",
     "cheerio": "^1.0.0-rc.2",
-    "ical-generator": "^0.2.10"
+    "ejs": "^2.5.7",
+    "ical-generator": "^0.2.10",
+    "iconv-lite": "^0.4.19",
+    "koa": "^2.5.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-logger": "^3.1.0",
+    "koa-mount": "^3.0.0",
+    "koa-router": "^7.4.0",
+    "koa-session": "^5.8.1",
+    "koa-static": "^4.0.2",
+    "koa-views": "^6.1.4",
+    "path": "^0.12.7",
+    "querystring": "^0.2.0",
+    "urlencode": "^1.1.0"
   }
 }

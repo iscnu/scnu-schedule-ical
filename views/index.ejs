@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('head'); %>
+  </head>
+  <body>
+    <%- include('navbar'); %>
+    <section class="hero is-medium is-info is-bold">
+      <div class="hero-body" style="padding-top: 5em; padding-bottom: 5em;">
+        <div class="container">
+          <h1 class="title">
+            课表 iCal 导出工具
+          </h1>
+          <h2 class="subtitle">
+            一键将你的课表导入到系统日历中
+          </h2>
+          <a class="button is-primary" href="generate">立即导出</a> <a href="docs" class="button" style="margin-left: 5px;">使用教程</a>
+        </div>
+      </div>
+    </section>
+    <section class="section part">
+      <div class="container">
+        <h1 class="title has-text-centered">课程表与系统日历的完美结合</h1>
+        <p class="has-text-centered">
+          Windows、macOS、iOS、Android、Windows Phone以及各大邮箱服务均自带了日历和日程功能<br>iCal 是一种通用的日历数据的格式，(遵循国际标准 <a href="https://tools.ietf.org/html/rfc5545" target="_blank">RFC5545</a>)<br>通过本程序可将教务课表网页转换为 iCal 日程表格式，兼容绝大多数设备，方便你导入其中，无需任何第三方APP。
+        </p>
+        <p class="has-text-centered" style="margin-top: 10px;"><img class="screenshot" src="static/images/screenshot-1.png" style="width: 650px;"></p>
+      </div>
+    </section>
+    <section class="section part" style="background: rgb(245, 245, 245);">
+      <div class="container">
+        <h1 class="title has-text-centered">全平台云端同步课表</h1>
+        <p class="has-text-centered">
+          通过现今手机与电脑强大的云同步功能，可以实现课表的云端同步，只需几步操作，即可让您的手机和电脑同时支持课表功能。
+        </p>
+        <!-- <p class="has-text-centered" style="margin-top: 10px;"><img src="static/images/screenshot-2.jpg" style="width: 650px;"></p> -->
+        <div class="container" style="padding: 0 25px;">
+          <div class="columns" style="margin-top: 10px;">
+            <div class="column is-one-third has-text-centered">
+              <img class="screenshot" src="static/images/screenshot-2.jpg" alt="手机端" style="max-height: 350px;">
+            </div>
+            <div class="column is-two-thirds has-text-centered">
+              <img class="screenshot" src="static/images/screenshot-3.png" alt="网页端" style="max-height: 350px;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section part">
+      <div class="container">
+        <h1 class="title has-text-centered">课前提醒功能</h1>
+        <p class="has-text-centered">
+          本程序支持设置导出日历事件的提前提醒，上课前通过手机、电脑系统通知的形式，提醒上课时间与地点<br>让你再也不需要匆匆忙忙打开相册掏出课表寻找上课的教室。
+        </p>
+        <!-- <p class="has-text-centered" style="margin-top: 10px;"><img class="screenshot" src="static/images/screenshot-4.jpg" style="max-height: 400px;"></p> -->
+        <div class="container" style="padding: 0 25px; max-width: 600px;">
+          <div class="columns" style="margin-top: 10px;">
+            <div class="column has-text-centered">
+              <img class="screenshot" src="static/images/screenshot-4.jpg" alt="手机端" style="max-height: 350px;">
+            </div>
+            <div class="column has-text-centered">
+              <img class="screenshot" src="static/images/screenshot-5.jpg" alt="Windows" style="max-height: 350px;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section part" style="background: rgb(245, 245, 245);">
+      <div class="container">
+        <h1 class="title has-text-centered">高级玩法</h1>
+        <p class="has-text-centered">
+          将课表导入日历以后，Siri, Cortana 这些智能助理也能派上用场啦！更多惊喜，待你发现^_^
+        </p>
+        <div class="container" style="padding: 0 25px; max-width: 600px;">
+          <div class="columns" style="margin-top: 10px;">
+            <div class="column has-text-centered">
+              <img class="screenshot" src="static/images/screenshot-7.jpg" alt="Siri" style="max-height: 350px;">
+            </div>
+            <div class="column has-text-centered">
+              <img class="screenshot" src="static/images/screenshot-6.png" alt="Cortana" style="max-height: 350px;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <%- include('footer'); %>
+  </body>
+</html>

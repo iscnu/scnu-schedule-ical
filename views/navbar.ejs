@@ -1,0 +1,74 @@
+<div class="container">
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <!-- navbar items, navbar burger... -->
+      <a class="navbar-item" href="./">
+        <img src="static/images/logo.png" alt="程序首页">
+      </a>
+      <div class="navbar-burger" data-target="navMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+      <div class="navbar-end">
+        <a class="navbar-item <%= page === 'index' ? ' is-active' : '' %>" href="./">
+          程序首页
+        </a>
+        <a class="navbar-item" href="generate">
+          立即导出
+        </a>
+        <a class="navbar-item" href="docs">
+          使用指引
+        </a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            更多
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://i.scnu.edu.cn/" target="_blank">
+              ISCNU主页
+            </a>
+            <a class="navbar-item" href="https://bbs.scnu.edu.cn/" target="_blank">
+              新陶园论坛
+            </a>
+            <a class="navbar-item" href="https://pt.scnu.edu.cn/" target="_blank">
+              陶园PT
+            </a>
+            <a class="navbar-item" href="https://wiki.scnu.edu.cn/" target="_blank">
+              华师百科
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  // Get all "navbar-burger" elements
+  var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+  // Check if there are any navbar burgers
+  if ($navbarBurgers.length > 0) {
+
+    // Add a click event on each of them
+    $navbarBurgers.forEach(function ($el) {
+      $el.addEventListener('click', function () {
+
+        // Get the target from the "data-target" attribute
+        var target = $el.dataset.target;
+        var $target = document.getElementById(target);
+
+        // Toggle the class on both the "navbar-burger" and the "navbar-menu"
+        $el.classList.toggle('is-active');
+        $target.classList.toggle('is-active');
+
+      });
+    });
+  }
+
+});
+</script>

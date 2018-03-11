@@ -1,43 +1,13 @@
-const fs = require('fs');
 const cheerio = require('cheerio');
-const ical = require('ical-generator');
 
-function readFile(fileName) {
-  return new Promise(function(resolve, reject) {
-    fs.readFile(fileName, "utf8", function (err, data) {
-      if (err) return reject(err);
-      resolve(data);
-    })
-  });
-}
-
-// 提醒
-var alarm = 15;
-
-// 校区
-var campus = "sp";
+const places = require('./places');
 
 // 学期的第一个周一的日期
 var firstMonday = "2018-02-26";
 
-// 初始化
-var cal = ical({
-  domain: "jwc.scnu.edu.cn",
-  prodId: { company: "South China Normal University", product: "class-schedule" },
-  name: "SCNU Class Schedule",
-  timezone: "Asia/Shanghai",
-});
-
-// 组合 ISO 8601 日期
-function mergeDateTime(date, time) {
-  if (time.split(":")[0].length === 1) {
-    time = "0" + time;
-  }
-  return date + "T" + time + ":00+08:00";
-}
-
 // 各个校区作息时间安排，来自教务网的数据
 const schedule = {
+  // 石牌校区
   sp: {
     1: { start: "8:30", end: "9:10" },
     2: { start: "9:20", end: "10:00" },
@@ -51,6 +21,7 @@ const schedule = {
     10: { start: "19:50", end: "20:30" },
     11: { start: "20:40", end: "21:20" },
   },
+  // 大学城校区
   dxc: {
     1: { start: "8:30", end: "9:10" },
     2: { start: "9:20", end: "10:00" },
@@ -64,6 +35,7 @@ const schedule = {
     10: { start: "19:50", end: "20:30" },
     11: { start: "20:40", end: "21:20" },
   },
+  // 南海校区
   nh: {
     1: { start: "8:15", end: "8:55" },
     2: { start: "9:05", end: "9:45" },
@@ -90,13 +62,12 @@ const dayMap = {
   "周日" : 7,
 };
 
-readFile("schedule_debug/index.html").then(function (data) {
-  // console.log(data);
-  const $ = cheerio.load(data, {decodeEntities: false});
-  // console.log($.html());
+// 解析课程列表
+exports.parseCoursesList = function (html) {
+  const $ = cheerio.load(html, { decodeEntities: false });
   // 获取到课表中带课程的单元格
   var courseCells = $("td[align=Center]", "#Table1").not('td[width="14%"]')
-  // console.log(courseCells);
+
   // 遍历单元格
   var courses = courseCells.filter(function (i, el) {
     var html = $(el).html();
@@ -125,7 +96,7 @@ readFile("schedule_debug/index.html").then(function (data) {
     var singleOrDouble = weekArr[1] === "单周" ? 1 : weekArr[1] === "双周" ? 2 : 0;
     var info = {
       name: infoArr[0], // 课程名
-      type: infoArr[1], // 课程类型：必修/选修/公选/重修
+      type: infoArr[1], // 课程类型：必修/选修/公选
       day, // 星期几
       order, // 上课节次
       startWeek: week[1], // 开始周
@@ -141,6 +112,7 @@ readFile("schedule_debug/index.html").then(function (data) {
   var mergedCourseArr = [];
   courseArr.forEach(function (v, i) {
     var push = true;
+    var campus = places[v.place] || 'sp';
     for (var j = 0; j < mergedCourseArr.length; j++) {
       // console.log(mergedCourseArr);
       if (mergedCourseArr[j].day === v.day && mergedCourseArr[j].name === v.name && mergedCourseArr[j].place === v.place) {
@@ -156,40 +128,6 @@ readFile("schedule_debug/index.html").then(function (data) {
       mergedCourseArr.push(v);
     }
   });
-  // console.log(mergedCourseArr);
-  // console.log(courseArr.length);
-  // console.log(mergedCourseArr.length);
 
-  // 下一步，添加到 ical 对象
-  mergedCourseArr.forEach(function (course) {
-    console.log("course", course);
-    // 开课日期与第一个周一的偏移天数
-    var startDayOffset = course.day - 1 + 7 * (course.startWeek - 1);
-    // 结课日期与第一个周一的偏移天数
-    var endDayOffset = course.day - 1 + 7 * (course.endWeek - 1);
-    // 一天的开始时刻
-    var startTime = new Date((new Date(mergeDateTime(firstMonday, course.startTime))).getTime() + startDayOffset * 86400000);
-    // 一天的结束时刻
-    var endTime = new Date((new Date(mergeDateTime(firstMonday, course.endTime))).getTime() + startDayOffset * 86400000);
-    var event = cal.createEvent({
-      start: startTime,
-      end: endTime,
-      summary: course.name,
-      description: course.type + "课\n" + course.teacher + "\n" + ( course.singleOrDouble === 1 ? "单周" : course.singleOrDouble === 2 ? "双周" : "" ),
-      location: course.place,
-      repeating: {
-        freq: 'WEEKLY', // 以周为周期
-        interval: course.singleOrDouble === 0 ? 1 : 2, // 单双周
-        until: new Date((new Date(mergeDateTime(firstMonday, "23:59"))).getTime() + endDayOffset * 86400000),
-      }
-    });
-    if (alarm) {
-      event.createAlarm({ type: 'display', trigger: Math.ceil(alarm * 60) });
-    }
-  });
-
-  // console.log(cal.toString());
-  cal.saveSync("schedule.ics");
-
-
-});
+  return mergedCourseArr;
+};

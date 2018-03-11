@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('head'); %>
+    <link rel="stylesheet" href="./static/vendor/bulma-steps/bulma-steps.min.css">
+    <link rel="stylesheet" href="./static/vendor/bulma-tooltip.min.css">
+  </head>
+  <body>
+    <%- include('navbar'); %>
+    <section class="hero is-info">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            课表生成
+          </h1>
+          <h2 class="subtitle">
+            只需三步,即可完成课表导出
+          </h2>
+        </div>
+      </div>
+    </section>
+    <section id="gen-steps" style="padding: 3em 0 0;">
+      <div class="steps is-small">
+        <div class="step-item is-info">
+          <div class="step-marker">1</div>
+          <div class="step-details">
+            <p class="step-title">Step 1</p>
+            <p>登录您的教务帐号</p>
+          </div>
+        </div>
+        <div class="step-item is-info">
+          <div class="step-marker">2</div>
+          <div class="step-details">
+            <p class="step-title">Step 2</p>
+            <p>设置生成参数</p>
+          </div>
+        </div>
+        <div class="step-item is-info">
+          <div class="step-marker">
+            <span class="icon">
+              <i class="fa fa-flag"></i>
+            </span>
+          </div>
+          <div class="step-details">
+            <p class="step-title">Step 3</p>
+            <p>完成导出</p>
+          </div>
+        </div>
+        <div class="steps-content section part" style="background: rgb(245, 245, 245); min-height: 350px; margin-bottom: 0;">
+          <!-- step-1 -->
+          <div id="step-1" class="step-content container" style="max-width: 500px">
+            <h3 class="title">登录帐户</h3>
+            <p>您输入的帐户密码信息将通过 HTTPS 加密连接传送至 ISCNU 位于大学城网络中心的服务器，仅用于获取您的课表，浏览会话结束后，信息将被销毁，ISCNU不会留存您的任何帐户信息。（未来将接入学校的统一身份认证）</p>
+            <div class="form" style="margin-top: 10px;">
+              <div class="field">
+                <label class="label">用户名</label>
+                <div class="control">
+                  <input id="username" class="input" type="text" placeholder="教务用户名">
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">密码</label>
+                <div class="control">
+                  <input id="password" class="input" type="password" placeholder="登录密码">
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">验证码</label>
+                <div class="control">
+                  <img id="icode" style="pointer-events: auto; display: none; position: absolute; width: 90px; height: 36px; z-index: 9999; right: 0;">
+                  <input id="CheckCode" class="input" type="text" placeholder="输入验证码，点击显示图片">
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <label class="checkbox">
+                    <input id="confirm" type="checkbox">
+                    我同意 ISCNU 的服务器使用我的帐户密码获取课表信息
+                  </label>
+                </div>
+              </div>
+              <div class="field is-grouped">
+                <div class="control">
+                  <button id="login" class="button is-link">登录</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- step2 -->
+          <div id="step-2" class="step-content container" style="max-width: 500px">
+            <h3 class="title">生成参数设置</h3>
+            <p>在这里可以对即将生成的日程表进行个性化设置</p>
+            <div class="field is-horizontal" style="margin-top: 15px;">
+              <div class="field-label is-normal">
+                <label class="label">提醒设置</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <div class="select">
+                      <select id="alarm-setting">
+                        <option value="0">不提醒</option>
+                        <option value="5">课程开始前5分钟提醒</option>
+                        <option value="10">课程开始前10分钟提醒</option>
+                        <option value="15">课程开始前15分钟提醒</option>
+                        <option value="20">课程开始前20分钟提醒</option>
+                        <option value="25" selected>课程开始前25分钟提醒</option>
+                        <option value="30">课程开始前30分钟提醒</option>
+                        <option value="40">课程开始前40分钟提醒</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="field is-horizontal" style="margin-top: 15px;">              
+              <div class="field-label is-normal">
+                <label class="label">标题格式</label>
+              </div>
+              <div class="field-body" style="margin-top: 5px;">
+                <div class="field">
+                  <div class="control">
+                    <label class="radio">
+                      <input type="radio" value="1" name="title-setting">
+                      课程名 + 上课教师
+                    </label>
+                    <label class="radio">
+                      <input type="radio" value="0" name="title-setting" checked>
+                      仅课程名
+                    </label>
+                  </div>
+                  <p class="help">两种格式的例子：<a>数据结构 (黄老师)</a> / <a>数据结构</a></p>
+                  <p class="help">无论选择哪个，教师都会显示在事件描述中</p>
+                </div>
+              </div>
+            </div>
+            <div class="field is-grouped">
+              <div class="control">
+                <button id="generate" class="button is-link">生成 iCal 日历文件</button>
+              </div>
+            </div>
+          </div>
+          <!-- step3 -->
+          <div id="step-3" class="step-content container" style="max-width: 500px">
+            <h3 class="title">完成！</h3>
+            <p>课表生成完毕，您可以选择一个喜欢的方式添加到您的日历中</p>
+            <!-- <div class="title is-4" style="margin-top: 1em;"></div> -->
+            <p style="margin-top: 1em;">1. 通过日历链接订阅</p>
+            <p>复制下方链接，在日历中订阅此链接</p>
+            <div class="control has-icons-right" style="margin-top: 10px;">
+              <input id="ics-input" class="input" type="text" placeholder="复制链接" readonly>
+              <span class="icon is-small is-right" style="pointer-events: auto; cursor: pointer;">
+                <a id="ics-copy" class="link tooltip" data-clipboard-target="#ics-input" data-tooltip="复制到剪切板"><i class="fas fa-copy"></i></a>
+              </span>
+            </div>
+            <p style="margin-top: 1em;">2. 直接下载 ics 文件手动导入</p>
+            <p><a id="ics-link" class="button is-link" style="margin-top: 10px;">下载 ics 文件</a><a id="ics-prev" class="button" style="margin-top: 10px; margin-left: 10px;">返回上一步</a><a id="ics-reload" class="button is-danger" style="margin-top: 10px; margin-left: 10px;">重来</a></p>
+            <p style="margin-top: 1em;">不懂怎么导入？欢迎参考 <a>我们的教程</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <%- include('footer'); %>
+    <script src="./static/vendor/bulma-steps/bulma-steps.js"></script>
+    <script src="./static/vendor/clipboard.min.js"></script>
+    <script src="./static/js/generate.js"></script>
+    <script src="./static/js/jwc_captcha_filler.js"></script>
+    <!-- <script src="./static/jwc_captcha_filler.js"></script> -->
+    <script>
+      var clipboard = new ClipboardJS('#ics-copy');
+
+      clipboard.on('success', function(e) {
+          console.info('Action:', e.action);
+          console.info('Text:', e.text);
+          console.info('Trigger:', e.trigger);
+
+          e.trigger.dataset.tooltip = '已复制！';
+          // e.clearSelection();
+      });
+
+      clipboard.on('error', function(e) {
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+        showModel('Oops! 出错了', '复制出错，可能是浏览器不兼容。');
+      });
+    </script>
+  </body>
+</html>
