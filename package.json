@@ -2,7 +2,7 @@
   "name": "zf_schedule",
   "version": "0.0.1",
   "description": "export schedule of Zhengfang System to ics calendar file",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
