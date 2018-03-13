@@ -6,12 +6,14 @@ const bodyParser = require('koa-bodyparser');
 const serve = require('koa-static');
 const mount = require('koa-mount');
 const views = require('koa-views');
+const log4js = require('koa-log4')
 
 const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
 
 const zf = require('./common/zf');
+const infoLogger = require('./common/logger');
 
 const app = new Koa();
 const router = new Router();
@@ -19,7 +21,9 @@ const router = new Router();
 app.keys = ['This is a secret by ISCNU'];
 
 // logger
-app.use(logger());
+// app.use(logger());
+app.use(log4js.koaLogger(log4js.getLogger("http"), { level: 'auto' }))
+
 
 // parse request body
 app.use(bodyParser());
@@ -94,7 +98,9 @@ router.post('/api/login', async function (ctx) {
     return;
   }
   try {
+    infoLogger.info(`User login, id: ${username}`);
     let { error, student_id, name } = await zf.jwcLogin(ctx.session.cookie, ctx.session.hidden, username, password, code);
+    infoLogger.info(`User login success, id: ${username}`);
     if (error) {
       ctx.body = {
         success: false,
@@ -125,6 +131,8 @@ router.post('/api/generate_ics', requireLogin, async function (ctx) {
     // console.log('list', courseList);
     let filename = await zf.generateICS(courseList, alarm, teacher);
     // console.log('filename', filename);
+    infoLogger.info(`ics file generated, id: ${ctx.session.student_id}, filename: ${filename}, alarm: ${alarm}, teacher: ${teacher}`);
+
     ctx.body = {
       success: true,
       filename
