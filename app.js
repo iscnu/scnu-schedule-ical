@@ -184,4 +184,33 @@ router.get('/generate', async function (ctx) {
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-app.listen(3000);
+
+/**
+ * Get port from environment.
+ */
+
+let port = normalizePort(process.env.PORT || '3000');
+app.listen(port);
+console.info('Listening on ' + port);
+
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
