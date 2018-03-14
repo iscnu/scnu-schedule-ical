@@ -1,20 +1,21 @@
-#简介
-TODO: 简要介绍你的项目。通过此节说明此项目的目标或动机。
+# 简介
+这是一个将教务课表导出ICS日历格式的小工具，通过模拟登录正方教务系统抓取课表网页转换的方式实现
 
-#入门
+# 入门
 TODO: 指导用户获取你的代码并在其自己的系统上运行该代码。在本节中，可讨论:
-1.	安装过程
-2.	软件依赖项
-3.	最新发布
-4.	API 参考
+## 依赖
+* Node.js >= 7.6, 推荐 8.x LTS 版本
 
-#生成与测试
-TODO: 说明并展示如何生成代码和运行测试。
+## 部署
+1. 安装依赖
+```
+npm install
+```
 
-#投稿
-TODO: 说明其他用户和开发人员可如何帮助改善代码。
+2. 启动
+```
+node app.js
+```
+程序默认监听 3000 端口提供 HTTP 服务，可通过设置 PORT 环境变量改变端口号
 
-如果想要深入了解如何创建优秀的自述文件，请参阅以下[指南] (https://www.visualstudio.com/zh-cn/docs/git/create-a-readme)。还可从以下自述文件中寻求灵感:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+生产环境中可以通过进程管理器(例如 pm2)启动
