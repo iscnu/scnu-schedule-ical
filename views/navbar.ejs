@@ -16,10 +16,10 @@
         <a class="navbar-item <%= page === 'index' ? ' is-active' : '' %>" href="./">
           程序首页
         </a>
-        <a class="navbar-item" href="generate">
+        <a class="navbar-item <%= page === 'generate' ? ' is-active' : '' %>" href="generate">
           立即导出
         </a>
-        <a class="navbar-item">
+        <a class="navbar-item <%= page === 'doc' ? ' is-active' : '' %>" href="doc">
           使用指引
         </a>
         <div class="navbar-item has-dropdown is-hoverable">

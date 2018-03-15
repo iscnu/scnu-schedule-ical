@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('head'); %>
+    <style>
+    .content ul {
+      margin-top: .5em;
+    }
+    .content h2,
+    .content h3 {
+      padding-top: 1em;
+    }
+    .content img {
+      max-height: 450px;
+    }
+    </style>
+  </head>
+  <body>
+    <%- include('navbar'); %>
+    <section class="hero is-info">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            iCal课表使用指引
+          </h1>
+          <h2 class="subtitle" style="margin-top: -0.5rem;">
+          手把手教您打造一个<strong>清晰展示</strong>、<strong>按时提醒</strong>、<strong>无副作用</strong>的课表！
+          </h2>
+        </div>
+      </div>
+    </section>
+    <section class="section" style="padding: 1rem 1.5rem;">
+      <div class="container">
+        <article class="content" id="content">
+          <h2>前言</h2>
+          <p>日历、日程功能作为一个基础服务，有着广泛的支持。Windows、macOS、iOS、Android、Windows Phone 等系统均有着十分完善的日历客户端，各大邮箱服务都具备了日历交换的功能。但它们上手起来对于初学的我们来说，还是有一点点门槛的，所以就有了本文。</p>
+          <p>本文档旨在提供一个完整的流程帮助大家在把课表导入到日历中，教您打造一个<strong>清晰展示</strong>于手机/电脑中、<strong>按时提醒</strong>、<strong>无副作用</strong>(流氓推广、无用的社交功能、费电)的课程表。</p>
+          <p>通过这个过程同时还可以为我们对于邮件沟通、GTD 时间管理方法等等建立一个基本的概念，无论您日后选择科研道路，还是选择融入职场，都能为其打下一个良好的基础。</p>
+          <p>本文档分为两部分，一部分介绍各个系统、服务具体的导入的操作，另一部分介绍日历的云同步的操作过程。</p>
+          <p>由于日历是一个基础服务，因而它的配置十分灵活，并不受教程的步骤限制，所以本文档仅供参考。</p>
+          <blockquote>
+            <p>首先先得出一个小结论 ;-)</p>
+            <p>易用程度：macOS  = iOS &gt; Windows 10 &gt; Android</p>
+          </blockquote>
+          <p>您可以通过以下本文的目录跳转到合适您的部分阅读。</p>
+          文章目录：
+          <div id="toc"></div>
+          <h2>导入的步骤</h2>
+          <p>这里以 Windows、Android、macOS 和 iOS 系统以及 Outlook 邮箱为例进行说明，选择适合您的一种方式即可。</p>
+          <p>若您希望在多个设备实现日历功能，可以通过在其中一个设备导入日历，再通过云同步的方式把日历同步到其它设备中。</p>
+          <h3>Windows 下的导入</h3>
+          <blockquote>
+            <p>如果您用的不是 Windows 10、也不是 macOS ，建议移步 Outlook 邮箱的方式导入日历这一节。</p>
+          </blockquote>
+          <p>在 Windows 10 系统下，系统自带了一个日历应用，并支持直接导入 ics 文件，所以我们只需要创建一个日历账户双击导入即可（在云同步这一节会详细介绍）</p>
+          <ol>
+            <li>
+              <p>双击下载的 ics 文件，此时日历应用会自动打开。</p>
+              <p><img src='static/images/doc/Snipaste_2018-03-14_20-16-16.png' alt='Snipaste_2018-03-14_20-16-16' /></p>
+            </li>
+            <li>
+              <p>检查事件是否完整，选择要添加到的日历，点击 “添加到日历” 即可。</p>
+              <p><img src='static/images/doc/1521049938911.png' alt='1521049938911' /></p>
+            </li>
+          </ol>
+          <h3>macOS 下的导入</h3>
+          <ol>
+            <li>
+              <p>打开系统自带的日历功能</p>
+              <p><img src='static/images/doc/1521050476744.png' alt='1521050476744' /></p>
+            </li>
+            <li>
+              <p>在菜单栏中点击 文件-&gt;导入 选项</p>
+              <p><img src='static/images/doc/1521050555036.png' alt='1521050555036' /></p>
+            </li>
+            <li>
+              <p>找到下载的 ics 文件</p>
+              <p><img src='static/images/doc/1521050672751.png' alt='1521050672751' /></p>
+            </li>
+            <li>
+              <p>完成</p>
+              <p><img src='static/images/doc/1.3.png' alt='1.3' /></p>
+            </li>
+          </ol>
+          <h3>iOS 下的导入</h3>
+          <p>iOS 系统下有以下三种情况</p>
+          <ol>
+            <li>若您拥有 macOS 的电脑，只要手机和电脑绑定了同一个iCloud帐户，电脑添加日历以后，日历将会自动同步，无需折腾。</li>
+            <li>若您没有运行 macOS 的电脑，有 Windows 10 的电脑的话，可以在 Windows 10 中的日历添加 iCloud 帐户实现（后文有详细说明）</li>
+            <li>若您只有 iOS 系统可以使用，可通过设置订阅本站提供的日历链接的方式来实现。</li>
+          </ol>
+          <p>TODO: 链接方式订阅的截图</p>
+          <h3>Android 下的导入</h3>
+          <p>由于Android系统众多，且许多定制系统对日历的导入导出功能有着不同程度的阉割，所以方法不一，本文档将以MIUI系统为例介绍这一过程。</p>
+          <p>若您可以自己动手折腾，您也可以在各大应用市场下载名为 <code>iCal Import/Export</code> 应用实现导入。</p>
+          <p>若您不想折腾，有一个比较好的方法是，在电脑端导入好日历，再在手机上设置同步邮箱账户的方式，通过邮箱账户把日历自动同步到手机中。</p>
+          <p>账户绑定的方法在日历的云同步这一节有详细说明。</p>
+          <h3>导入到 Outlook 邮箱</h3>
+          <p>目前国内可用的邮箱中，唯有微软的 Outlook 邮箱支持导入 ics 日历的功能(最方便的 Gmail 被...)，若您的设备不支持直接导入 ics 文件，可考虑注册一个 outlook 邮箱账户来使用日历导入的功能，再通过云同步的方式同步到到设备中。</p>
+          <ol>
+            <li>
+              <p>打开 outlook.com，若您以前没有注册过 outlook，可点击注册</p>
+              <p><img src='static/images/doc/1521052343152.png' alt='1521052343152' /></p>
+            </li>
+            <li>
+              <p>点击左边栏的“日历”功能</p>
+              <p><img src='static/images/doc/1521052537386.png' alt='1521052537386' /></p>
+            </li>
+            <li>
+              <p>取消 “试用Beta版” 的开关</p>
+            </li>
+            <li>
+              <p>下面我们需要把时区设置为 东8区 避免时间错误，点击设置 &gt; 选项</p>
+              <p><img src='static/images/doc/1521087466930.png' alt='1521087466930' /></p>
+              <p>在 常规 &gt; 地区与时区中，把设置改为下图所示，保存</p>
+              <p><img src='static/images/doc/1521087669620.png' alt='1521087669620' /></p>
+              <p>&nbsp;</p>
+            </li>
+            <li>
+              <p>回到日历界面点击添加日历 &gt; 二级日历，取名为“课表”</p>
+              <p><img src='static/images/doc/1521052615648.png' alt='1521052615648' /></p>
+            </li>
+            <li>
+              <p>点击 “发现日历” -&gt; “从文件导入” -&gt; 选择课表ics -&gt; 导入</p>
+              <p><img src='static/images/doc/1521087751682.png' alt='1521087751682' /></p>
+            </li>
+            <li>
+              <p>完成</p>
+              <p><img src='static/images/doc/1521087814039.png' alt='1521087814039' /></p>
+              <p>做完这一步，您就拥有了一个在线的日历账户了，把它绑定到电脑和手机上，即可实现全平台课表同步。</p>
+            </li>
+            <li>
+              <p>如果您不希望Outlook每天发邮件提示你的日程安排的话，可以在选项中关掉这个功能</p>
+              <p><img src='static/images/doc/1521090856577.png' alt='1521090856577' /></p>
+            </li>
+          </ol>
+          <h2>日历的云同步</h2>
+          <p>日历云同步的功能，主要通过邮箱服务商提供的 Exchange 服务来进行（另：苹果 iCloud 也支持日历同步），所以只要您所有设备的日历客户端都配置了邮箱的 Exchange 服务的话，您的日程就能在其中实现云同步了。</p>
+          <p>邮箱的选择不限制，若您已经在其中的客户端导入了日历文件，那么选择一个你喜欢的邮件地址（如<strong>华师M邮箱</strong>、QQ邮箱、163邮箱）；若您没有设备可直接导入ics文件，那么推荐您通过 Outlook 邮箱同步导入的课表。</p>
+          <p>服务的配置也十分简单，只需在本地添加一个基于 Exchange 服务，用以同步的邮箱帐户即可，下面将以 Outlook 邮箱为例，根据系统一一介绍。</p>
+          <h3>Windows 10</h3>
+          <p>Windows 10 日历添加账户的方法较为简单，直接在日历设置中添加账户即可。</p>
+          <p>Outlook 邮箱直接用第一个选项，若您需要与 iOS系统进行同步，请选择 iCloud</p>
+          <p><img src='static/images/doc/1521081679119.png' alt='1521081679119' /></p>
+          <p>&nbsp;</p>
+          <h3>iOS</h3>
+          <p>iPhone/iPad 可以通过 iCloud 实现日历的同步，与 macOS 可以实现无缝结合。</p>
+          <p>如果您在使用 iPhone，但没有 Mac 电脑的话，有以下两种手段。</p>
+          <ol>
+            <li>若您使用 Windows 10 系统，您可以通过在 Windows 10 日历客户端中添加 iCloud 帐户的方式实现，只需按提示输入帐户密码即可（具体请移步 Windows 10 小节）。</li>
+            <li>在邮件设置中添加邮箱帐户，参考微软Office文档 <a href='https://support.office.com/zh-cn/article/%E4%BD%BF%E7%94%A8-ios-%E9%82%AE%E4%BB%B6%E5%BA%94%E7%94%A8%E8%AE%BE%E7%BD%AE%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6-7e5b180f-bc8f-45cc-8da1-5cefc1e633d1' target="_blank">使用 iOS 邮件应用设置电子邮件</a></li>
+          </ol>
+          <h3>Android</h3>
+          <p>用惯 Android 手机的朋友可能会注意到，在手机的设置界面有个 “账户与同步” 的功能，可能您不知道怎么用，这是Android系统中一个强大的基础服务，其中一个便是实现邮箱和日历的同步，当我们在其中绑定了邮箱帐户以后，邮件、日历、联系人便能通过邮箱进行同步了。</p>
+          <p>下面将以 MIUI 9 为例介绍绑定的流程：</p>
+          <ol>
+            <li>
+              <p>打开 设置 &gt; 账号 &gt; 同步界面，点击 “添加”</p>
+              <p><img src='static/images/doc/1521082766287.png' alt='1521082766287' /></p>
+              <p>&nbsp;</p>
+            </li>
+            <li>
+              <p>选择“公司”</p>
+              <p><img src='static/images/doc/1521083718445.png' alt='1521083718445' /></p>
+            </li>
+            <li>
+              <p>添加邮件账户，输入刚刚注册的 outlook 邮箱账号，保持默认的 Exchange 服务设置，点击登录。</p>
+              <p><img src='static/images/doc/1521088610156.png' alt='1521088610156' /></p>
+            </li>
+            <li>
+              <p>登录以后，由于微软在强推它自家的 Outlook 客户端，所以还需要点击它发来的邮件确认才能启用同步。</p>
+              <p><img src='static/images/doc/1521089984617.png' alt='1521089984617' /></p>
+              <p><img src='static/images/doc/1521090030915.png' alt='1521090030915' /></p>
+              <p><img src='static/images/doc/1521090084059.png' alt='1521090084059' /></p>
+            </li>
+            <li>
+              <p>等待一段时间，我们就能在手机的日历上看到课表了。</p>
+              <p><img src='static/images/doc/1521090176024.png' alt='1521090176024' /></p>
+            </li>
+            <li>
+              <p>我们可以在日历的账户信息中选择显示哪个账户的日历</p>
+              <p><img src='static/images/doc/1521090550697.png' alt='1521090550697' /></p>
+              <p>&nbsp;</p>
+            </li>
+          </ol>
+          <p>文档作者：qing</p>
+          <p>图片素材：qing、Meadow</p>
+          <p>有什么疑问的话可在 ISCNU 公众号后台留言</p>
+          <p>ISCNU 网络协会技术部出品</p>
+        </article>
+      </div>
+    </section>
+    <hr>
+    <%- include('footer'); %>
+    <script src="static/vendor/smooth-scroll.min.js"></script>
+    <script>
+      function TableOfContents(tocId, containerId) {
+        var toc = document.getElementById(tocId);
+        toc.innerHTML = "";
+        toc.className += " toc";
+        var container = containerId ? document.getElementById(containerId) : toc.parentElement;
+        var headings = [].slice.call(container.querySelectorAll('h1, h2, h3, h4, h5, h6'));
+        var closeLevel = function(e, levels) {
+            for (var i = 0; i < levels && e.parentElement && e.parentElement.parentElement; i++) {
+                e = e.parentElement.parentElement;
+            }
+            return e;
+        };
+        var createLiWithAnchor = function(anchor, heading) {
+            var li = document.createElement("li");
+            var a = document.createElement("a");
+            a.href = "#" + anchor;
+            // a.dataset.scroll = true;
+            a.textContent = heading.textContent;
+            li.appendChild(a);
+            // heading.innerHTML = "<a name='" + anchor + "'>" + heading.textContent + "</a>";
+            // heading.className += " no-decoration";
+            heading.id = anchor;
+            return li;
+        };
+        var prevLevel = 0;
+        var root, curr;
+        headings.forEach(function (heading, index) {
+            var tag = heading.tagName.toLowerCase();
+            var curLevel = parseInt(tag.replace(/[^\d]/i, ""));// get number from h1, h2, h3,... tags
+            var anchor = heading.textContent.replace(/\r?\n|\r/g, "").replace(/\s/, "_"); // remove all new lines and replace spaces with underscore
+            var li = createLiWithAnchor(anchor, heading);
+            if (curLevel > prevLevel) {
+                // open 1 ul and add 1 li
+                if (!curr) {
+                    root = document.createElement("ol");
+                    root.appendChild(li);
+                } else {
+                    var ul = document.createElement("ul");
+                    ul.appendChild(li);
+                    curr.appendChild(ul);
+                }
+            } else if (curLevel === prevLevel) {
+                // add 1 new li next to current li
+                curr.parentElement.appendChild(li);
+            } else if (curLevel < prevLevel) {
+                // close n ul, add one 1 li as a sibling of the ancestor
+                var ancestor = closeLevel(curr, prevLevel - curLevel);
+                ancestor.parentElement.appendChild(li);
+            }
+            curr = li;
+            prevLevel = curLevel;
+        });
+        toc.appendChild(root);
+      }
+      TableOfContents("toc", "content");
+      var scroll = new SmoothScroll('a[href*="#"]');
+    </script>
+  </body>
+</html>

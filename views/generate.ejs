@@ -4,6 +4,11 @@
     <%- include('head'); %>
     <link rel="stylesheet" href="./static/vendor/bulma-steps/bulma-steps.min.css">
     <link rel="stylesheet" href="./static/vendor/bulma-tooltip.min.css">
+    <style>
+      .cd-top {
+        display: none;
+      }
+    </style>
   </head>
   <body>
     <%- include('navbar'); %>
@@ -13,7 +18,7 @@
           <h1 class="title">
             课表生成
           </h1>
-          <h2 class="subtitle">
+          <h2 class="subtitle" style="margin-top: -0.5rem;">
             只需三步,即可完成课表导出
           </h2>
         </div>
@@ -50,7 +55,7 @@
           <!-- step-1 -->
           <div id="step-1" class="step-content container" style="max-width: 500px">
             <h3 class="title">登录帐户</h3>
-            <p>您输入的帐户密码信息将通过 HTTPS 加密连接传送至 ISCNU 位于大学城网络中心的服务器，仅用于获取您的课表，浏览会话结束后，信息将被销毁，ISCNU不会留存您的任何帐户信息。（未来将接入学校的统一身份认证）</p>
+            <p>您输入的帐户密码信息将通过 HTTPS 加密连接传送至 ISCNU 位于大学城网络中心的服务器，仅用于获取您的课表，浏览会话结束后，信息将被销毁，ISCNU不会留存您的任何帐户信息。（未来的新版本将接入学校的统一身份认证）</p>
             <div class="form" style="margin-top: 10px;">
               <div class="field">
                 <label class="label">用户名</label>

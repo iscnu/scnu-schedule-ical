@@ -6,7 +6,7 @@ const bodyParser = require('koa-bodyparser');
 const serve = require('koa-static');
 const mount = require('koa-mount');
 const views = require('koa-views');
-const log4js = require('koa-log4')
+const log4js = require('koa-log4');
 
 const fs = require('fs');
 const path = require('path');
@@ -180,6 +180,13 @@ router.get('/generate', async function (ctx) {
   });
 });
 
+router.get('/doc', async function (ctx) {
+  ctx.type = 'html';
+  await ctx.render('doc', {
+    title: '使用指引 - iCal课表导出工具 - ISCNU',
+    page: 'doc',
+  });
+});
 
 app.use(router.routes());
 app.use(router.allowedMethods());
@@ -213,4 +220,3 @@ function normalizePort(val) {
 
   return false;
 }
-
