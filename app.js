@@ -129,7 +129,7 @@ router.post('/api/generate_ics', requireLogin, async function (ctx) {
   try {
     let courseList = await zf.getSchedule(ctx.session.cookie, ctx.session.student_id);
     // console.log('list', courseList);
-    let filename = await zf.generateICS(courseList, alarm, teacher);
+    let filename = await zf.generateICS(courseList, parseInt(alarm) || false, teacher);
     // console.log('filename', filename);
     infoLogger.info(`ics file generated, id: ${ctx.session.student_id}, filename: ${filename}, alarm: ${alarm}, teacher: ${teacher}`);
 
