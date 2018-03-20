@@ -3,6 +3,12 @@
 <html>
   <head>
     <%- include('head'); %>
+    <script>
+    // 暴力跳转
+    if (location.pathname === '/ical') {
+      location.href = '/ical/';
+    }
+    </script>
   </head>
   <body>
     <%- include('navbar'); %>
