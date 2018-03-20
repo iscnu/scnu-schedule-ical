@@ -21,7 +21,7 @@
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
-            iCal课表使用指引
+            iCal 课表使用指引
           </h1>
           <h2 class="subtitle" style="margin-top: -0.5rem;">
           手把手教您打造一个<strong>清晰展示</strong>、<strong>按时提醒</strong>、<strong>无副作用</strong>的课表！
@@ -35,7 +35,7 @@
           目录：
           <div id="toc"></div>
           <h2>前言</h2>
-          <p>iCalendar，简称“iCal”，是“日历数据交换”的标准，该标准提供了一种公共的数据格式用于存储关于日历方面的信息，比如事件、约定、待办事项等。它的文件格式是 *.ics</p>
+          <p>iCalendar，简称“iCal”，是“日历数据交换”的标准，该标准提供了一种公共的数据格式用于存储与交换日历方面的信息，比如事件、约定、待办事项等。它的文件格式是 *.ics</p>
           <p>日历、日程功能作为一个基础服务，在 Windows、macOS、iOS、Android、Windows Phone 等系统、以及各大邮箱服务都有着强大的原生支持。但它们上手起来对于初学的我们来说，还是有一点点门槛的，所以就有了本文。</p>
           <p>本文档旨在提供一个完整的流程帮助大家把课表导入到日历中，教您打造一个<strong>清晰展示</strong>于手机/电脑中、<strong>按时提醒</strong>、<strong>无副作用</strong>(流氓推广、无用的社交功能、费电)的课程表。</p>
           <p>通过这个过程同时还可以为我们对于邮件沟通、GTD 时间管理方法等等建立一个基本的概念，无论您日后选择科研道路，还是选择融入职场，都能为其打下一个良好的基础。</p>
@@ -46,18 +46,19 @@
             <p>易用程度：macOS  = iOS &gt; Windows 10 &gt; Android</p>
           </blockquote>
           <h2>导入前您需要做的</h2>
-          <p>前往 <a href="generate" target="_blank">立即导出</a> 页面，将您的课表转换成系统日历通用的 ics 文件</p>
+          <p>前往 <a href="generate" target="_blank">立即导出</a> 页面，将您的课表转换成系统日历通用的 ics 格式文件，如图：</p>
+          <p><img src='static/images/doc/finish-exporting.png'/></p>          
           <hr>
           <h2>导入的步骤</h2>
           <p>这里以 Windows、Android、macOS 和 iOS 系统以及 Outlook 邮箱为例进行说明，选择适合您的一种方式即可。</p>
           <p>若您希望在多个设备实现日历功能，可以通过在其中一个设备导入日历，再通过云同步的方式把日历同步到其它设备中。</p>
           <h3>通过 Outlook 邮箱导入</h3>
-          <p>为什么选择巨硬的邮箱呢？因为在目前国内可用的邮箱中，唯有微软的 Outlook 邮箱支持导入 ics 日历的功能(最方便的 Gmail 被...)</p>
-          <p>当然，如果您用的是 macOS/iOS 设备，或您有其它的软件可处理 ics 文件，可直接跳过本步骤。</p>
-          <p>做完此步骤，您将拥有一个在线的日历账户，把它绑定到您的电脑或手机上，即可实现全平台课表同步。</p>
+          <p>为什么选择微软的邮箱呢？因为在目前国内可用的邮箱中，唯有微软的 Outlook 邮箱支持导入 *.ics 格式文件到日历中(最方便的 Gmail 被...)</p>
+          <p>当然，如果您用的是 macOS/iOS 设备，或您有其它的软件可处理 *.ics 文件，可直接跳过本步骤。</p>
+          <p>做完此步骤，您将拥有一个在线的日历账户，把它分别绑定到您的电脑和手机上，即可实现手机和电脑之间的课表同步。</p>
           <ol>
             <li>
-              <p>打开 outlook.com，若您以前没有注册过 outlook，可点击注册</p>
+              <p>打开 <a href="http://outlook.com" target="_blank">outlook.com</a>，若您以前没有注册过 Outlook，可点击右上角注册</p>
               <p><img src='static/images/doc/1521052343152.png' alt='1521052343152' /></p>
             </li>
             <li>
@@ -68,7 +69,7 @@
               <p>取消 “试用Beta版” 的开关</p>
             </li>
             <li>
-              <p>下面我们需要把时区设置为 东8区 避免时间错误，点击设置 &gt; 选项</p>
+              <p>下面我们需要把时区设置为<code>东8区</code>避免时间错误，点击设置 &gt; 选项</p>
               <p><img src='static/images/doc/1521087466930.png' alt='1521087466930' /></p>
               <p>在 常规 &gt; 地区与时区中，把设置改为下图所示，保存</p>
               <p><img src='static/images/doc/1521087669620.png' alt='1521087669620' /></p>
@@ -78,7 +79,7 @@
               <p>回到日历界面点击添加日历 &gt; 二级日历，取名为“课表”</p>
             </li>
             <li>
-              <p>点击 “发现日历” -&gt; “从文件导入” -&gt; 点击浏览，选择课表ics -&gt; 导入</p>
+              <p>点击 “发现日历” -&gt; “从文件导入” -&gt; 点击浏览，选择在本站导出的 ics 文件 -&gt; 导入</p>
               <p><img src='static/images/doc/1521087751682.png' alt='1521087751682' /></p>
             </li>
             <li>
@@ -86,19 +87,19 @@
               <p><img src='static/images/doc/1521087814039.png' alt='1521087814039' /></p>
             </li>
             <li>
-              <p>如果您不希望Outlook每天发邮件提示你的日程安排的话，可以在选项中关掉这个功能</p>
+              <p>如果您不希望 Outlook 每天发邮件提示你的日程安排的话，可以在选项中关掉这个功能</p>
               <p><img src='static/images/doc/1521090856577.png' alt='1521090856577' /></p>
             </li>
           </ol>
           <h3>Windows 下的导入</h3>
-          <p>在 Windows 10 系统下，系统自带了一个日历应用，并支持直接导入 ics 文件，这里有两种方式：
+          <p>在 Windows 10 系统下，系统自带了一个日历应用，并支持直接导入 *.ics 格式的文件，包括但不限于以下几种方式：
             <ol>
               <li>通过上个方法把日历导入到 Outlook 邮箱中，再在 Windows 10 下添加此 Outlook 邮箱，通过同步的方式增加课表</li>
               <li>若您需要与 iOS 设备同步，可在 Windows 10 日历应用下添加 iCloud 账户同步手机上已导入的课表(参考本文档关于 iOS 的教程)</li>
               <li>直接把 ics 文件下载下来，在本地导入到 Windows 10 的日历应用中</li>
             </ol>
           </p>
-          <p>若您以前从未使用过 Windows 自带的日历应用，并且对此无概念的话，建议您使用方法1</p>
+          <p>若您以前从未使用过 Windows 自带的日历应用，并且对此无概念的话，建议您使用第 1 种方式</p>
           <p>方法2与方法1可参考“日历的云同步”这一节</p>
           <p>下面是方法3的具体操作过程</p>
           <ol>
@@ -131,22 +132,55 @@
             </li>
           </ol>
           <h3>iOS 下的导入</h3>
-          <p>iOS 系统下有以下三种情况</p>
+          <p>iOS 系统下目前有以下几种情况</p>
           <ol>
             <li>若您拥有 macOS 的电脑，只要手机和电脑绑定了同一个iCloud帐户，电脑添加日历以后，日历将会自动同步，无需折腾。</li>
             <li>若您没有运行 macOS 的电脑，有 Windows 10 的电脑的话，可以在 Windows 10 中的日历添加 iCloud 帐户实现（后文有详细说明）</li>
             <li>若您只有 iOS 系统可以使用，可通过设置订阅本站提供的日历链接的方式来实现。</li>
           </ol>
-          <p>TODO: 链接方式订阅的截图</p>
+          <p>下面是方法 3 的操作流程（基于iOS 11.2.6，在 iPhone X 下完成）：</p>
+          <ol>
+            <li>
+              <p>生成日历 ics 文件，复制日历链接</p>
+              <p><img src="static/images/doc/ios-step-1.jpg"></p>
+            </li>
+            <li>
+              <p>打开“设置”，点击“帐户与密码”</p>
+              <p><img src="static/images/doc/ios-step-2.jpg"></p>
+            </li>
+            <li>
+              <p>点击“添加账户”</p>
+              <p><img src="static/images/doc/ios-step-3.jpg"></p>
+            </li>
+            <li>
+              <p>滑动到页面最下方，选择“其他”</p>
+              <p><img src="static/images/doc/ios-step-4.jpg"></p>
+            </li>
+            <li>
+              <p>“添加已订阅的日历”</p>
+              <p><img src="static/images/doc/ios-step-5.jpg"></p>
+            </li>
+            <li>
+              <p>粘贴第一步复制的链接，点击“下一步”</p>
+              <p><img src="static/images/doc/ios-step-6.jpg"></p>
+            </li>
+            <li>
+              <p>点击“存储”，添加完毕</p>
+              <p><img src="static/images/doc/ios-step-7.jpg"></p>
+            </li>
+          </ol>
+          <p>最后您可以在帐户页面的“已添加的日历”看到添加的课表</p>
+          <p style="margin-left: 2em;"><img src="static/images/doc/ios-result.jpg"></p>
           <h3>Android 下的导入</h3>
-          <p>由于Android系统众多，且许多定制系统对日历的导入导出功能有着不同程度的阉割，所以方法不一，本文档将以MIUI系统为例介绍这一过程。</p>
-          <p>若您可以自己动手折腾，您也可以在各大应用市场下载名为 <code>iCal Import/Export</code> 的应用实现导入。</p>
+          <p>由于Android系统机型众多，且许多“深度定制优化”的系统对日历的导入导出功能有着不同程度的阉割，所以操作的方法不一。</p>
+          <p>若您愿意花时间动手折腾，您可以在各大应用市场下载名为 <code>iCal Import/Export</code> 的应用实现导入。</p>
           <p>若您不想折腾，有一个比较好的方法是，在电脑端导入好日历，再在手机上设置同步邮箱账户的方式，通过邮箱账户把日历自动同步到手机中。</p>
           <p>账户绑定的方法在日历的云同步这一节有详细说明。</p>
+          <hr>          
           <h2>日历的云同步</h2>
           <p>日历云同步的功能，主要通过邮箱服务商提供的 Exchange 服务来进行（另：苹果 iCloud 也支持日历同步），所以只要您所有设备的日历客户端都配置了邮箱的 Exchange 服务的话，您的日程就能在其中实现云同步了。</p>
           <p>邮箱的选择不限制，若您已经在其中的客户端导入了日历文件，那么选择一个你喜欢的邮件地址（如<strong>华师M邮箱</strong>、Gmail、QQ邮箱、163邮箱、Outlook等等）；若您没有设备可直接导入ics文件，那么推荐您通过 Outlook 邮箱同步导入的课表。</p>
-          <p>服务的配置也十分简单，只需在本地添加一个基于 Exchange 服务，用以同步的邮箱帐户即可，下面将以 Outlook 邮箱为例，根据系统一一介绍。</p>
+          <p>服务的配置也十分简单，只需在本地添加一个基于 Exchange 服务，用以同步的邮箱帐户即可，下面将以 Outlook 邮箱为例，按照系统分别介绍。</p>
           <h3>Windows 10</h3>
           <p>Windows 10 日历添加账户的方法较为简单，直接在日历设置中添加账户即可。</p>
           <p>Outlook 邮箱直接用第一个选项，若您需要与 iOS系统进行同步，请选择 iCloud</p>
@@ -177,7 +211,7 @@
               <p><img src='static/images/doc/1521088610156.png' alt='1521088610156' /></p>
             </li>
             <li>
-              <p>登录以后，由于微软在强推它自家的 Outlook 客户端，所以还需要点击它发来的邮件确认才能启用同步。</p>
+              <p>登录以后，由于微软在强推自家的 Outlook 客户端，所以还需要点击它发来的邮件确认才能启用同步。</p>
               <p><img src='static/images/doc/1521089984617.png' alt='1521089984617' /></p>
               <p><img src='static/images/doc/1521090030915.png' alt='1521090030915' /></p>
               <p><img src='static/images/doc/1521090084059.png' alt='1521090084059' /></p>
@@ -193,8 +227,8 @@
             </li>
           </ol>
           <p>文档作者：qing</p>
-          <p>图片素材：qing、Meadow</p>
-          <p>有什么疑问的话可在 ISCNU 公众号后台留言</p>
+          <p>图片素材：qing、Meadow、Yuxuan、前背锅侠</p>
+          <p>有什么疑问的话可在 ISCNU 微信公众号后台留言</p>
           <p>ISCNU 网络协会技术部出品</p>
         </article>
       </div>
