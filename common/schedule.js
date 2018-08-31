@@ -2,9 +2,6 @@ const cheerio = require('cheerio');
 
 const places = require('./places');
 
-// 学期的第一个周一的日期
-var firstMonday = "2018-02-26";
-
 // 各个校区作息时间安排，来自教务网的数据
 const schedule = {
   // 石牌校区
