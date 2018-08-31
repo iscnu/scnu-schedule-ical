@@ -179,7 +179,7 @@ exports.generateICS = function (list, alarm, teacher) {
         start: startTime,
         end: endTime,
         summary: course.name + (teacher ? ` (${course.teacher})` : ''),
-        description: course.teacher + "\n" + ( course.singleOrDouble === 1 ? "单周" : course.singleOrDouble === 2 ? "双周" : "" ),
+        description: course.teacher + ( course.singleOrDouble === 1 ? "\n单周" : course.singleOrDouble === 2 ? "\n双周" : "" ) + "\n" + "-- Powered by ISCNU",
         location: course.place,
         repeating: {
           freq: 'WEEKLY', // 以周为周期
