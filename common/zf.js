@@ -143,7 +143,7 @@ exports.getSchedule = async function (cookie, student_id, teacher) {
 
 
 // 学期的第一个周一的日期
-var firstMonday = "2019-02-25";
+var firstMonday = "2019-09-02";
 
 // 组合 ISO 8601 日期
 function mergeDateTime(date, time) {
