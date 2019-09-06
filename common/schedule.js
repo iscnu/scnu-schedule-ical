@@ -100,7 +100,7 @@ exports.parseCoursesList = function (html) {
       endWeek: week[2], // 结束周
       singleOrDouble, // 单双周
       teacher: infoArr[3], // 教师名
-      place: infoArr[4], // 上课地点
+      place: infoArr[4].trim(), // 上课地点
     };
     courseArr.push(info);
   });
