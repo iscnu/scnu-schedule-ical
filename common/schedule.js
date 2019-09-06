@@ -71,11 +71,16 @@ exports.parseCoursesList = function (html) {
     return html !== String.fromCharCode(160); // Non-breakable space is char 160
   });
 
+  //用于判断没有上课地点的地方应该fallback到哪里
+  let spCount = 0
+  let dxcCount = 0
+  let nhCount = 0
+
   // 迭代 处理后的单元格
   var courseArr = [];
   courses.each(function (i, el) {
     var courseString = $(el).html().trim();
-    var infoArr = courseString.split("<br>");
+    var infoArr = courseString.split("<br>").map(i => i.trim());
     // 时间字符串
     // 多种情况，例如：
     // 周二第9,10节{第1-17周}
@@ -100,8 +105,21 @@ exports.parseCoursesList = function (html) {
       endWeek: week[2], // 结束周
       singleOrDouble, // 单双周
       teacher: infoArr[3], // 教师名
-      place: infoArr[4].trim(), // 上课地点
+      place: infoArr[4], // 上课地点
     };
+
+    // 增加计数
+    switch (info.place) {
+      case "sp":
+      spCount++;
+      break;
+      case "dxc":
+      dxcCount++;
+      break;
+      case "nh":
+      nhCount++;
+      break;
+    }
     courseArr.push(info);
   });
 
@@ -109,7 +127,14 @@ exports.parseCoursesList = function (html) {
   var mergedCourseArr = [];
   courseArr.forEach(function (v, i) {
     var push = true;
-    var campus = places[v.place] || 'sp';
+    var fallbackCampus = "sp"
+    if (dxcCount > spCount && dxcCount > nhCount) { // 大学城最大
+      fallbackCampus = "dxc"
+    }
+    if (nhCount > spCount && nhCount > dxcCount) { // 大学城最大
+      fallbackCampus = "nh"
+    }
+    var campus = places[v.place] || fallbackCampus;
     for (var j = 0; j < mergedCourseArr.length; j++) {
       // console.log(mergedCourseArr);
       if (mergedCourseArr[j].day === v.day && mergedCourseArr[j].name === v.name && mergedCourseArr[j].place === v.place) {
