@@ -72,9 +72,9 @@ exports.parseCoursesList = function (html) {
   });
 
   //用于判断没有上课地点的地方应该fallback到哪里
-  let spCount = 0
-  let dxcCount = 0
-  let nhCount = 0
+  let spCount = 0;
+  let dxcCount = 0;
+  let nhCount = 0;
 
   // 迭代 处理后的单元格
   var courseArr = [];
@@ -127,12 +127,12 @@ exports.parseCoursesList = function (html) {
   var mergedCourseArr = [];
   courseArr.forEach(function (v, i) {
     var push = true;
-    var fallbackCampus = "sp"
+    var fallbackCampus = "sp";
     if (dxcCount > spCount && dxcCount > nhCount) { // 大学城最大
-      fallbackCampus = "dxc"
+      fallbackCampus = "dxc";
     }
     if (nhCount > spCount && nhCount > dxcCount) { // 大学城最大
-      fallbackCampus = "nh"
+      fallbackCampus = "nh";
     }
     var campus = places[v.place] || fallbackCampus;
     for (var j = 0; j < mergedCourseArr.length; j++) {
