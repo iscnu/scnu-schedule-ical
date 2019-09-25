@@ -103,6 +103,8 @@ exports.parseCoursesList = function (html) {
           var week = weekArr[0].match(/第(\d*?)-(\d*?)周/);
           // 0: 不分，1: 单周，2: 双周
           var singleOrDouble = weekArr[1] === "单周" ? 1 : weekArr[1] === "双周" ? 2 : 0;
+          let place = infoArr[4 + indexOffSet];
+          if (place.indexOf('(') > 0) place = place.substring(0, place.indexOf('('));
           var info = {
               name: infoArr[0 + indexOffSet], // 课程名
               type: infoArr[1 + indexOffSet], // 课程类型：必修/选修/公选
@@ -112,11 +114,11 @@ exports.parseCoursesList = function (html) {
               endWeek: week[2], // 结束周
               singleOrDouble, // 单双周
               teacher: infoArr[3 + indexOffSet], // 教师名
-              place: infoArr[4 + indexOffSet], // 上课地点
+              place, // 上课地点
           };
 
           // 增加计数
-          switch (info.place) {
+          switch (places[info.place]) {
               case "sp":
                   spCount++;
                   break;
@@ -133,19 +135,25 @@ exports.parseCoursesList = function (html) {
 
   // 合并同一天，地点相同的同一课程
   var mergedCourseArr = [];
-  courseArr.forEach(function (v, i) {
-    var push = true;
     var fallbackCampus = "sp";
     if (dxcCount > spCount && dxcCount > nhCount) { // 大学城最大
-      fallbackCampus = "dxc";
+        fallbackCampus = "dxc";
     }
-      if (nhCount > spCount && nhCount > dxcCount) { // 南海最大
-      fallbackCampus = "nh";
+    if (nhCount > spCount && nhCount > dxcCount) { // 南海最大
+        fallbackCampus = "nh";
     }
+  courseArr.forEach(function (v, i) {
+    var push = true;
+
     var campus = places[v.place] || fallbackCampus;
     for (var j = 0; j < mergedCourseArr.length; j++) {
       // console.log(mergedCourseArr);
-      if (mergedCourseArr[j].day === v.day && mergedCourseArr[j].name === v.name && mergedCourseArr[j].place === v.place) {
+        if (mergedCourseArr[j].day === v.day &&
+            mergedCourseArr[j].name === v.name &&
+            mergedCourseArr[j].place === v.place &&
+            mergedCourseArr[j].place === v.place &&
+            mergedCourseArr[j].startWeek === v.startWeek &&
+            mergedCourseArr[j].endWeek === v.endWeek) {
         mergedCourseArr[j].order = mergedCourseArr[j].order.concat(v.order);
         push = false;
         mergedCourseArr[j].endTime = schedule[campus][v.order[v.order.length - 1]].end // 更新课程结束时间
