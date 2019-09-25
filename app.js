@@ -138,10 +138,10 @@ router.post('/api/generate_ics', requireLogin, async function (ctx) {
       filename
     }
   } catch (e) {
-    console.log(e);
+      infoLogger.error(e);
     ctx.body = {
       success: false,
-      msg: e.toString()
+        msg: '服务器内部出错'
     }
   }
 });
@@ -156,10 +156,10 @@ router.post('/api/schedule', requireLogin, async function (ctx) {
       courseList
     }
   } catch (e) {
-    console.log(e);
+      infoLogger.error(e)
     ctx.body = {
       success: false,
-      msg: e.toString()
+        msg: '服务器内部出错'
     }
   }
 });
