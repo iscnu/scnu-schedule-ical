@@ -84,7 +84,7 @@ exports.parseCoursesList = function (html) {
   var courseArr = [];
   courses.each(function (i, el) {
     var courseString = $(el).html().trim();
-    var infoArr = courseString.split("<br>").map(i => i.trim());
+    var infoArr = courseString.split(/(?:<br>)+/).map(i => i.trim());
     // 时间字符串
     // 多种情况，例如：
     // 周二第9,10节{第1-17周}
