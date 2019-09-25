@@ -63,7 +63,8 @@ const dayMap = {
 exports.parseCoursesList = function (html) {
   const $ = cheerio.load(html, { decodeEntities: false });
   // 获取到课表中带课程的单元格
-  var courseCells = $("td[align=Center]", "#Table1").not('td[width="14%"]')
+    // var courseCells = $("td[align=Center]", "#Table1").not('td[width="14%"]')
+    var courseCells = $("td[align=Center]").not('td[width="14%"]')
 
   // 遍历单元格
   var courses = courseCells.filter(function (i, el) {
@@ -76,6 +77,9 @@ exports.parseCoursesList = function (html) {
   let dxcCount = 0;
   let nhCount = 0;
 
+    // courseString 情况其一
+    // const str = `大学计算机(1)<br>必修<br>周三第3,4节{第11-11周|单周}<br>李铂<br>2－301(2019-2020-1)-43HA2221-3461-4<br><br>大学计算机(1)<br>必修<br>周三第3,4节{第4-4周|双周}<br>李铂<br>2－301(2019-2020-1)-43HA2221-3461-4<br><br>大学计算机(1)<br>必修<br>周三第3,4节{第13-15周}<br>李铂<br>2－301(2019-2020-1)-43HA2221-3461-4<br><br>大学计算机(1)<br>必修<br>周三第3,4节{第6-8周}<br>李铂<br>2－301(2019-2020-1)-43HA2221-3461-4`;
+
   // 迭代 处理后的单元格
   var courseArr = [];
   courses.each(function (i, el) {
@@ -86,41 +90,45 @@ exports.parseCoursesList = function (html) {
     // 周二第9,10节{第1-17周}
     // 周一第9,10,11节{第3-17周|单周}
     // 周二第9,10节{第1-17周|2节/周}
-    var timeStr = infoArr[2];
-    // 星期几
-    var day = dayMap[timeStr.substr(0, 2)];
-    // 第几节课
-    var order = timeStr.match(/第(.*?)节/)[1].split(',');
-    // 起始和终止周次，单双周
-    var weekArr = timeStr.match(/\{.*\}/g)[0].split('|');
-    var week = weekArr[0].match(/第(\d*?)-(\d*?)周/);
-    // 0: 不分，1: 单周，2: 双周
-    var singleOrDouble = weekArr[1] === "单周" ? 1 : weekArr[1] === "双周" ? 2 : 0;
-    var info = {
-      name: infoArr[0], // 课程名
-      type: infoArr[1], // 课程类型：必修/选修/公选
-      day, // 星期几
-      order, // 上课节次
-      startWeek: week[1], // 开始周
-      endWeek: week[2], // 结束周
-      singleOrDouble, // 单双周
-      teacher: infoArr[3], // 教师名
-      place: infoArr[4], // 上课地点
-    };
+      var indexOffSet;
+      for (indexOffSet = 0; indexOffSet < infoArr.length; indexOffSet = indexOffSet + 5) {
 
-    // 增加计数
-    switch (info.place) {
-      case "sp":
-      spCount++;
-      break;
-      case "dxc":
-      dxcCount++;
-      break;
-      case "nh":
-      nhCount++;
-      break;
-    }
-    courseArr.push(info);
+          var timeStr = infoArr[2 + indexOffSet];
+          // 星期几
+          var day = dayMap[timeStr.substr(0, 2)];
+          // 第几节课
+          var order = timeStr.match(/第(.*?)节/)[1].split(',');
+          // 起始和终止周次，单双周
+          var weekArr = timeStr.match(/\{.*\}/g)[0].split('|');
+          var week = weekArr[0].match(/第(\d*?)-(\d*?)周/);
+          // 0: 不分，1: 单周，2: 双周
+          var singleOrDouble = weekArr[1] === "单周" ? 1 : weekArr[1] === "双周" ? 2 : 0;
+          var info = {
+              name: infoArr[0 + indexOffSet], // 课程名
+              type: infoArr[1 + indexOffSet], // 课程类型：必修/选修/公选
+              day, // 星期几
+              order, // 上课节次
+              startWeek: week[1], // 开始周
+              endWeek: week[2], // 结束周
+              singleOrDouble, // 单双周
+              teacher: infoArr[3 + indexOffSet], // 教师名
+              place: infoArr[4 + indexOffSet], // 上课地点
+          };
+
+          // 增加计数
+          switch (info.place) {
+              case "sp":
+                  spCount++;
+                  break;
+              case "dxc":
+                  dxcCount++;
+                  break;
+              case "nh":
+                  nhCount++;
+                  break;
+          }
+          courseArr.push(info);
+      }
   });
 
   // 合并同一天，地点相同的同一课程
@@ -131,7 +139,7 @@ exports.parseCoursesList = function (html) {
     if (dxcCount > spCount && dxcCount > nhCount) { // 大学城最大
       fallbackCampus = "dxc";
     }
-    if (nhCount > spCount && nhCount > dxcCount) { // 大学城最大
+      if (nhCount > spCount && nhCount > dxcCount) { // 南海最大
       fallbackCampus = "nh";
     }
     var campus = places[v.place] || fallbackCampus;
