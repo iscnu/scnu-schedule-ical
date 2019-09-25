@@ -117,7 +117,7 @@ router.post('/api/login', async function (ctx) {
       }
     }
   } catch (e) {
-    console.log(e);    
+    console.log(e);
     return Promise.reject(e);
   }
 });
@@ -141,7 +141,7 @@ router.post('/api/generate_ics', requireLogin, async function (ctx) {
     console.log(e);
     ctx.body = {
       success: false,
-      msg: '服务器内部出错'
+      msg: e.toString()
     }
   }
 });
@@ -159,7 +159,7 @@ router.post('/api/schedule', requireLogin, async function (ctx) {
     console.log(e);
     ctx.body = {
       success: false,
-      msg: '服务器内部出错'
+      msg: e.toString()
     }
   }
 });
